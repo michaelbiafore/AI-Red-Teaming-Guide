@@ -891,7 +891,34 @@ python -m garak --probes dan,encoding --model_name mymodel
 
 ---
 
-#### 4. **IBM Adversarial Robustness Toolbox (ART)**
+#### 4. **promptfoo - LLM Red Teaming & Evaluation**
+
+```bash
+# Installation
+npm install -g promptfoo
+
+# Red team a model
+promptfoo redteam init
+promptfoo redteam run
+
+# Run evaluation
+promptfoo eval -c promptfooconfig.yaml
+```
+
+**Features:**
+- Adversarial attacks (PAIR, tree-of-attacks, crescendo, many-shot)
+- Prompt injection and jailbreak testing
+- Custom plugin support
+- CI/CD integration
+- Multi-provider support
+
+**Best For:** LLM red teaming, security testing, CI/CD pipelines
+
+**GitHub:** [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo)
+
+---
+
+#### 5. **IBM Adversarial Robustness Toolbox (ART)**
 
 ```python
 # Installation
