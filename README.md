@@ -1056,8 +1056,16 @@ counterfit
 #### 5. **Pillar Security**
 - Comprehensive red teaming services
 - Framework alignment (NIST, OWASP)
-- Custom testing programs
+- Shadow AI prevention
+- Real-time behavioural threat detection
 - **Website:** [pillar.security](https://www.pillar.security/)
+
+#### 6. **NeuralTrust TrustTest**
+- Comprehensive and extensive red teaming services
+- Generative Application Firewall
+- Framework alignment (NIST, OWASP, MITRE ATLAS, EU AI ACT)
+- Custom testing programs
+- **Website:** [neuraltrust.ai][https://neuraltrust.ai]
 
 ---
 
@@ -1073,6 +1081,7 @@ counterfit
 | **Mindgard** | Commercial | $$$ | Very High | Low | Enterprise compliance |
 | **Lakera** | Commercial | $$$ | High | Low | Production protection |
 | **Pillar** | Service | $$$$ | Custom | N/A | Full-service testing |
+| **NeuralTrust** | Service | $$$ | Custom | N/A | Full-service testing |
 
 ---
 
@@ -1834,6 +1843,7 @@ Recommends adversarial testing before deployment and continuous monitoring in pr
 - [Adversa AI](https://adversa.ai/)
 - [Pillar Security](https://www.pillar.security/)
 - [Splx AI](https://splx.ai/)
+- [NeuralTrust](https://neuraltrust.ai)
 
 ---
 
@@ -1866,6 +1876,7 @@ Recommends adversarial testing before deployment and continuous monitoring in pr
 - [Anthropic Safety Research](https://www.anthropic.com/research)
 - [OpenAI Safety](https://openai.com/safety)
 - [Google AI Safety](https://ai.google/safety/)
+- [NeuralTrust AI Security Blog](https://neuraltrust.ai/blog)
 
 ---
 
