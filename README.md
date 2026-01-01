@@ -1060,12 +1060,12 @@ counterfit
 - Real-time behavioural threat detection
 - **Website:** [pillar.security](https://www.pillar.security/)
 
-#### 6. **NeuralTrust TrustTest**
+#### 6. **NeuralTrust**
 - Comprehensive and extensive red teaming services
 - Generative Application Firewall
 - Framework alignment (NIST, OWASP, MITRE ATLAS, EU AI ACT)
 - Custom testing programs
-- **Website:** [neuraltrust.ai][https://neuraltrust.ai]
+- **Website:** [neuraltrust.ai](https://neuraltrust.ai)
 
 ---
 
