@@ -2058,8 +2058,9 @@ Unauthorized testing of AI systems may be illegal and unethical. Always obtain e
 
 ### 🎯 Remember: Responsible red teaming makes AI safer for everyone 🎯
 
-**Last Updated**: October 2025
+**Last Updated**: February 2026
 
 **Star this repository to stay updated with the latest AI red teaming practices!**
 
+<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://www.star-history.com/embed?secret=#requie/AI-Red-Teaming-Guide&type=date&legend=top-left" frameBorder="0"></iframe>
 </div>
