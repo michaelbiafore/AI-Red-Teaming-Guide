@@ -1023,6 +1023,40 @@ counterfit
 
 ---
 
+#### 8. **Gideon - Cogensec**
+
+AI-powered autonomous cybersecurity operations assistant focused on defensive security research, threat intelligence, and hardening policy generation.
+
+```bash
+# Installation
+git clone https://github.com/cogensec/gideon.git
+cd gideon
+bun install
+
+# Setup environment
+cp env.example .env
+# Edit .env with your API keys (OpenRouter, NVD, VirusTotal, etc.)
+
+# Launch Gideon
+bun start
+```
+
+**Features:**
+- CVE vulnerability research via NVD and CISA databases
+- IOC reputation checking (IPs, domains, URLs, file hashes)
+- Neural semantic web search powered by Exa AI
+- Multi-model LLM support through OpenRouter (400+ models)
+- Daily automated security briefings and incident tracking
+- Hardening policy generation for AWS, Azure, GCP, Kubernetes, and Okta
+- Task-based planning with autonomous execution and self-verification
+- Built-in safety guardrails for defensive-only operations
+
+**Best For:** Defensive security research, threat intelligence, hardening policy generation
+
+**GitHub:** [Cogensec/Gideon](https://github.com/Cogensec/Gideon)
+
+---
+
 ### Commercial Platforms
 
 #### 1. **Mindgard**
@@ -1078,6 +1112,7 @@ counterfit
 | **Garak** | Open | Free | High | Low | Quick scans |
 | **ART** | Open | Free | Medium | High | Classical ML attacks |
 | **Giskard** | Open | Free | High | Medium | Multi-turn attacks |
+| **Gideon** | Open | Free | High | Medium | Defensive threat intel |
 | **Mindgard** | Commercial | $$$ | Very High | Low | Enterprise compliance |
 | **Lakera** | Commercial | $$$ | High | Low | Production protection |
 | **Pillar** | Service | $$$$ | Custom | N/A | Full-service testing |
@@ -1836,6 +1871,7 @@ Recommends adversarial testing before deployment and continuous monitoring in pr
 - [DeepEval](https://github.com/confident-ai/deepeval) - Testing framework
 - [ART](https://github.com/Trusted-AI/adversarial-robustness-toolbox) - IBM's toolkit
 - [Giskard](https://github.com/Giskard-AI/giskard) - AI testing platform
+- [Gideon](https://github.com/Cogensec/Gideon) - Autonomous defensive security assistant
 
 **Commercial:**
 - [Mindgard](https://mindgard.ai/)
