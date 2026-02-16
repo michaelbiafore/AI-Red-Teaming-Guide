@@ -2062,5 +2062,7 @@ Unauthorized testing of AI systems may be illegal and unethical. Always obtain e
 
 **Star this repository to stay updated with the latest AI red teaming practices!**
 
-<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://www.star-history.com/embed?secret=#requie/AI-Red-Teaming-Guide&type=date&legend=top-left" frameBorder="0"></iframe>
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=requie/AI-Red-Teaming-Guide&type=date&legend=top-left)](https://www.star-history.com/#requie/AI-Red-Teaming-Guide&type=date&legend=top-left)
 </div>
