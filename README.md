@@ -37,16 +37,6 @@
 - [Agentic AI Attack Trees + Controls Mapping](#agentic-ai-attack-trees--controls-mapping)
 - [AI Harm Severity and Triage Model](#ai-harm-severity-and-triage-model)
 - [Secure SDLC Integration Artifacts](#secure-sdlc-integration-artifacts)
-- [Defensive Architecture Patterns](#defensive-architecture-patterns)
-- [Multilingual & Cultural Safety Playbook](#multilingual--cultural-safety-playbook)
-- [Data Governance for Red Teaming](#data-governance-for-red-teaming)
-- [Metrics That Matter (and Anti-Metrics)](#metrics-that-matter-and-anti-metrics)
-- [Purple Team Operations](#purple-team-operations)
-- [Common Implementation Pitfalls](#common-implementation-pitfalls)
-- [Case Study Quality Bar](#case-study-quality-bar)
-- [Model & System Cards for Security Posture](#model--system-cards-for-security-posture)
-- [Source Hygiene & Update Governance](#source-hygiene--update-governance)
-- [Practitioner Appendices](#practitioner-appendices)
 - [Regulatory Compliance](#regulatory-compliance)
 - [Resources and References](#resources-and-references)
 
@@ -1896,8 +1886,6 @@ To reduce "one-off" testing, integrate red-team controls into delivery workflows
 - Sudden ASR spike (>2x baseline)
 - New jailbreak family with repeat success
 - Evidence of cross-tenant leakage or autonomous unsafe tool use
-
-
 
 ## 🛡️ Defensive Architecture Patterns
 
