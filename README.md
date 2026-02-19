@@ -32,6 +32,11 @@
 - [Real-World Case Studies](#real-world-case-studies)
 - [Building Your Red Team](#building-your-red-team)
 - [Best Practices](#best-practices)
+- [Implementation Quickstart (30/60/90)](#implementation-quickstart-306090)
+- [Evaluation Harness (Reference Implementation)](#evaluation-harness-reference-implementation)
+- [Agentic AI Attack Trees + Controls Mapping](#agentic-ai-attack-trees--controls-mapping)
+- [AI Harm Severity and Triage Model](#ai-harm-severity-and-triage-model)
+- [Secure SDLC Integration Artifacts](#secure-sdlc-integration-artifacts)
 - [Regulatory Compliance](#regulatory-compliance)
 - [Resources and References](#resources-and-references)
 
@@ -1737,6 +1742,151 @@ Red team members should feel comfortable:
 - Risk documentation
 
 ---
+
+
+## 🚀 Implementation Quickstart (30/60/90)
+
+Use this phased plan to turn guidance into an operating program.
+
+### First 30 Days (Foundation)
+- Define system scope, stakeholders, and crown-jewel assets
+- Run a 2-hour threat modeling workshop (use `templates/threat-modeling-workshop.md`)
+- Create an initial attack library with at least:
+  - 25 prompt injection tests
+  - 25 jailbreak tests
+  - 10 data leakage tests
+- Establish baseline metrics: ASR, critical/high count, time-to-triage
+
+### Days 31-60 (Operationalization)
+- Implement weekly automated red-team regression in CI
+- Add manual deep-dive sessions for top 3 business-critical scenarios
+- Define triage SLA by severity (Critical/High/Medium/Low)
+- Stand up a shared red-team findings board with remediation owners
+
+### Days 61-90 (Scale)
+- Add multilingual and multi-turn attack suites
+- Add agentic AI abuse tests (tool misuse, memory poisoning, permissions)
+- Launch monthly purple-team exercise with detection and IR teams
+- Publish quarterly security posture report with residual risk trends
+
+---
+
+## 🧪 Evaluation Harness (Reference Implementation)
+
+A lightweight structure for repeatable red-teaming and regression tracking:
+
+```
+security-evals/
+├── prompts/
+│   ├── prompt_injection.csv
+│   ├── jailbreaks.csv
+│   └── data_leakage.csv
+├── policies/
+│   └── expected_outcomes.yaml
+├── scorers/
+│   ├── policy_violation.py
+│   └── leakage_detector.py
+├── reports/
+│   ├── latest.json
+│   └── trend.csv
+└── run_eval.py
+```
+
+### Minimum Scoring Set
+- **ASR** by attack category
+- **False positives/negatives** for moderation and detection controls
+- **Exploit recurrence rate** after mitigation
+- **Time-to-fix** and **time-to-verify**
+
+### Release Gates (Suggested)
+- Block release if:
+  - Any **Critical** issue is open
+  - ASR for high-risk category > 5%
+  - Regression introduces > 20% ASR increase in any tracked class
+
+---
+
+## 🕸️ Agentic AI Attack Trees + Controls Mapping
+
+Use attack trees to connect offensive testing paths to defensive controls.
+
+### Attack Tree A: Tool Misuse
+1. Inject hidden instruction into user-supplied content
+2. Agent adopts malicious instruction priority
+3. Agent invokes high-privilege tool
+4. Agent executes unsafe action
+
+**Controls:**
+- Preventive: tool allowlists, scoped API tokens, policy checks pre-execution
+- Detective: anomalous tool-call monitoring, high-risk action alerts
+- Corrective: transaction rollback, credential rotation, incident playbook
+
+### Attack Tree B: Memory Poisoning
+1. Adversary plants false memory artifact
+2. Agent persists poisoned state
+3. Subsequent sessions trust manipulated context
+4. Agent behavior drifts into unsafe decisions
+
+**Controls:**
+- Preventive: memory write policies, source trust labels, TTL for memory items
+- Detective: memory integrity diffs, unusual memory mutation alerts
+- Corrective: memory quarantine/reset, retrospective impact analysis
+
+### Attack Tree C: Inter-Agent Privilege Escalation
+1. Compromise low-privilege agent with prompt injection
+2. Lateral instruction passing to orchestrator
+3. Orchestrator executes action outside original permission boundary
+4. Expanded access leads to data exfiltration or sabotage
+
+**Controls:**
+- Preventive: identity-bound inter-agent authz, least-privilege role boundaries
+- Detective: cross-agent call graph anomaly detection
+- Corrective: isolate compromised agent, revoke delegated capabilities
+
+---
+
+## 📈 AI Harm Severity and Triage Model
+
+Use CVSS as a base, then add AI-specific modifiers:
+
+| Dimension | Description | Scale |
+|-----------|-------------|-------|
+| **Exploitability** | How easy the issue is to reproduce | Low/Med/High |
+| **User Impact** | Potential harm to users or protected groups | Low/Med/High/Critical |
+| **Autonomy Factor** | Can agents execute actions without human confirmation? | None/Partial/Full |
+| **Blast Radius** | Single user, tenant, or cross-tenant/system-wide | Narrow/Broad/Systemic |
+| **Recoverability** | Time/effort to safely restore expected behavior | Easy/Moderate/Hard |
+
+### Triage SLA (Suggested)
+- **Critical**: acknowledge immediately, mitigate within 24 hours
+- **High**: acknowledge within 4 hours, mitigate within 7 days
+- **Medium**: mitigate within 30 days
+- **Low**: backlog with risk acceptance + review date
+
+---
+
+## 🧩 Secure SDLC Integration Artifacts
+
+To reduce "one-off" testing, integrate red-team controls into delivery workflows.
+
+### PR Security Checklist (AI Systems)
+- [ ] Threat model updated for new capabilities/tools
+- [ ] New prompts/flows added to evaluation harness
+- [ ] High-risk tool actions require explicit authorization checks
+- [ ] Logging and privacy controls validated
+- [ ] Residual risks documented in system card
+
+### Release Readiness Criteria
+- No open Critical findings
+- All High findings have approved mitigation or documented exception
+- Regression suite passes for required attack categories
+- Monitoring/detection rules deployed for new features
+
+### Operational Runbook Triggers
+- Sudden ASR spike (>2x baseline)
+- New jailbreak family with repeat success
+- Evidence of cross-tenant leakage or autonomous unsafe tool use
+
 
 ## 📋 Regulatory Compliance
 
