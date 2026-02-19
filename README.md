@@ -32,6 +32,21 @@
 - [Real-World Case Studies](#real-world-case-studies)
 - [Building Your Red Team](#building-your-red-team)
 - [Best Practices](#best-practices)
+- [Implementation Quickstart (30/60/90)](#implementation-quickstart-306090)
+- [Evaluation Harness (Reference Implementation)](#evaluation-harness-reference-implementation)
+- [Agentic AI Attack Trees + Controls Mapping](#agentic-ai-attack-trees--controls-mapping)
+- [AI Harm Severity and Triage Model](#ai-harm-severity-and-triage-model)
+- [Secure SDLC Integration Artifacts](#secure-sdlc-integration-artifacts)
+- [Defensive Architecture Patterns](#defensive-architecture-patterns)
+- [Multilingual & Cultural Safety Playbook](#multilingual--cultural-safety-playbook)
+- [Data Governance for Red Teaming](#data-governance-for-red-teaming)
+- [Metrics That Matter (and Anti-Metrics)](#metrics-that-matter-and-anti-metrics)
+- [Purple Team Operations](#purple-team-operations)
+- [Common Implementation Pitfalls](#common-implementation-pitfalls)
+- [Case Study Quality Bar](#case-study-quality-bar)
+- [Model & System Cards for Security Posture](#model--system-cards-for-security-posture)
+- [Source Hygiene & Update Governance](#source-hygiene--update-governance)
+- [Practitioner Appendices](#practitioner-appendices)
 - [Regulatory Compliance](#regulatory-compliance)
 - [Resources and References](#resources-and-references)
 
@@ -1737,6 +1752,328 @@ Red team members should feel comfortable:
 - Risk documentation
 
 ---
+
+
+## 🚀 Implementation Quickstart (30/60/90)
+
+Use this phased plan to turn guidance into an operating program.
+
+### First 30 Days (Foundation)
+- Define system scope, stakeholders, and crown-jewel assets
+- Run a 2-hour threat modeling workshop (use `templates/threat-modeling-workshop.md`)
+- Create an initial attack library with at least:
+  - 25 prompt injection tests
+  - 25 jailbreak tests
+  - 10 data leakage tests
+- Establish baseline metrics: ASR, critical/high count, time-to-triage
+
+### Days 31-60 (Operationalization)
+- Implement weekly automated red-team regression in CI
+- Add manual deep-dive sessions for top 3 business-critical scenarios
+- Define triage SLA by severity (Critical/High/Medium/Low)
+- Stand up a shared red-team findings board with remediation owners
+
+### Days 61-90 (Scale)
+- Add multilingual and multi-turn attack suites
+- Add agentic AI abuse tests (tool misuse, memory poisoning, permissions)
+- Launch monthly purple-team exercise with detection and IR teams
+- Publish quarterly security posture report with residual risk trends
+
+---
+
+## 🧪 Evaluation Harness (Reference Implementation)
+
+A lightweight structure for repeatable red-teaming and regression tracking:
+
+```
+security-evals/
+├── prompts/
+│   ├── prompt_injection.csv
+│   ├── jailbreaks.csv
+│   └── data_leakage.csv
+├── policies/
+│   └── expected_outcomes.yaml
+├── scorers/
+│   ├── policy_violation.py
+│   └── leakage_detector.py
+├── reports/
+│   ├── latest.json
+│   └── trend.csv
+└── run_eval.py
+```
+
+### Minimum Scoring Set
+- **ASR** by attack category
+- **False positives/negatives** for moderation and detection controls
+- **Exploit recurrence rate** after mitigation
+- **Time-to-fix** and **time-to-verify**
+
+### Release Gates (Suggested)
+- Block release if:
+  - Any **Critical** issue is open
+  - ASR for high-risk category > 5%
+  - Regression introduces > 20% ASR increase in any tracked class
+
+---
+
+## 🕸️ Agentic AI Attack Trees + Controls Mapping
+
+Use attack trees to connect offensive testing paths to defensive controls.
+
+### Attack Tree A: Tool Misuse
+1. Inject hidden instruction into user-supplied content
+2. Agent adopts malicious instruction priority
+3. Agent invokes high-privilege tool
+4. Agent executes unsafe action
+
+**Controls:**
+- Preventive: tool allowlists, scoped API tokens, policy checks pre-execution
+- Detective: anomalous tool-call monitoring, high-risk action alerts
+- Corrective: transaction rollback, credential rotation, incident playbook
+
+### Attack Tree B: Memory Poisoning
+1. Adversary plants false memory artifact
+2. Agent persists poisoned state
+3. Subsequent sessions trust manipulated context
+4. Agent behavior drifts into unsafe decisions
+
+**Controls:**
+- Preventive: memory write policies, source trust labels, TTL for memory items
+- Detective: memory integrity diffs, unusual memory mutation alerts
+- Corrective: memory quarantine/reset, retrospective impact analysis
+
+### Attack Tree C: Inter-Agent Privilege Escalation
+1. Compromise low-privilege agent with prompt injection
+2. Lateral instruction passing to orchestrator
+3. Orchestrator executes action outside original permission boundary
+4. Expanded access leads to data exfiltration or sabotage
+
+**Controls:**
+- Preventive: identity-bound inter-agent authz, least-privilege role boundaries
+- Detective: cross-agent call graph anomaly detection
+- Corrective: isolate compromised agent, revoke delegated capabilities
+
+---
+
+## 📈 AI Harm Severity and Triage Model
+
+Use CVSS as a base, then add AI-specific modifiers:
+
+| Dimension | Description | Scale |
+|-----------|-------------|-------|
+| **Exploitability** | How easy the issue is to reproduce | Low/Med/High |
+| **User Impact** | Potential harm to users or protected groups | Low/Med/High/Critical |
+| **Autonomy Factor** | Can agents execute actions without human confirmation? | None/Partial/Full |
+| **Blast Radius** | Single user, tenant, or cross-tenant/system-wide | Narrow/Broad/Systemic |
+| **Recoverability** | Time/effort to safely restore expected behavior | Easy/Moderate/Hard |
+
+### Triage SLA (Suggested)
+- **Critical**: acknowledge immediately, mitigate within 24 hours
+- **High**: acknowledge within 4 hours, mitigate within 7 days
+- **Medium**: mitigate within 30 days
+- **Low**: backlog with risk acceptance + review date
+
+---
+
+## 🧩 Secure SDLC Integration Artifacts
+
+To reduce "one-off" testing, integrate red-team controls into delivery workflows.
+
+### PR Security Checklist (AI Systems)
+- [ ] Threat model updated for new capabilities/tools
+- [ ] New prompts/flows added to evaluation harness
+- [ ] High-risk tool actions require explicit authorization checks
+- [ ] Logging and privacy controls validated
+- [ ] Residual risks documented in system card
+
+### Release Readiness Criteria
+- No open Critical findings
+- All High findings have approved mitigation or documented exception
+- Regression suite passes for required attack categories
+- Monitoring/detection rules deployed for new features
+
+### Operational Runbook Triggers
+- Sudden ASR spike (>2x baseline)
+- New jailbreak family with repeat success
+- Evidence of cross-tenant leakage or autonomous unsafe tool use
+
+
+
+## 🛡️ Defensive Architecture Patterns
+
+Translate red-team findings into architecture decisions using a layered control model:
+
+### Reference Pipeline
+```
+User Input
+  -> Input normalization/sanitization
+  -> Policy-as-code pre-checks
+  -> Prompt orchestration with role boundaries
+  -> Retrieval/tool authorization gates
+  -> Model inference
+  -> Output policy and leakage filters
+  -> Human-in-the-loop (for high-risk actions)
+  -> Logging, telemetry, and audit trail
+```
+
+### Core Patterns
+1. **Secure Prompt Orchestration**
+   - Separate system, developer, and user instructions
+   - Prevent untrusted content from altering control prompts
+
+2. **Tool Permissioning and Isolation**
+   - Grant least-privilege tokens per tool and per action
+   - Use approval workflows for sensitive actions (payments, credential resets)
+
+3. **Policy-as-Code Enforcement**
+   - Implement deterministic checks before tool execution
+   - Version policies and test them in CI alongside prompts
+
+4. **Output Guardrails**
+   - Add layered filters (policy, PII, compliance)
+   - Require citations for high-stakes domains where applicable
+
+---
+
+## 🌍 Multilingual & Cultural Safety Playbook
+
+### Test Set Design
+- Cover top business languages + low-resource languages in your user base
+- Include region-specific harmful-content categories and local legal constraints
+- Add culturally sensitive edge cases (slang, euphemisms, coded hate terms)
+
+### Required Test Patterns
+- **Translation-loop bypass**: blocked request translated across 2+ languages
+- **Mixed-language prompt injection**: instructions split across languages/scripts
+- **Code-switching attacks**: alternating dialect/locale variants per turn
+- **Contextual harm variance**: same request across regions with different norms
+
+### Reporting Requirements
+- Record language, locale, and script for every failure
+- Track ASR by language family to identify uneven safety coverage
+- Prioritize mitigation where user impact and language penetration are highest
+
+---
+
+## 🗂️ Data Governance for Red Teaming
+
+### Data Classes in Scope
+- Prompts and conversational logs
+- Retrieved documents and memory artifacts
+- Model outputs (including blocked/flagged outputs)
+- Metadata containing user identifiers or tenant references
+
+### Handling Rules (Baseline)
+- Minimize data collection to testing necessity
+- Pseudonymize/anonymize PII before long-term storage
+- Encrypt findings repositories and restrict access by role
+- Define retention windows per data class (e.g., 30/90/365 days)
+- Run legal/compliance review for regulated environments
+
+### Governance Checkpoints
+- Pre-engagement data handling approval
+- Mid-engagement privacy compliance review
+- Post-engagement purge and evidence retention sign-off
+
+---
+
+## 📊 Metrics That Matter (and Anti-Metrics)
+
+### Outcome Metrics (Use)
+- **ASR by risk category** (not only aggregate ASR)
+- **Exploit recurrence rate** after fixes
+- **Median time-to-fix** by severity
+- **Residual risk trend** by quarter
+- **Control coverage** across high-risk abuse paths
+
+### Anti-Metrics (Avoid)
+- Raw number of tests executed without risk weighting
+- Total vulnerabilities found as a standalone success metric
+- Single-point benchmark scores without trend context
+- “Pass rate” without confidence interval/sample-size disclosure
+
+---
+
+## 🟣 Purple Team Operations
+
+### Operating Cadence
+1. Red team identifies exploit chain and reproduction steps
+2. Detection engineering maps telemetry and creates detections
+3. Incident response drafts/updates response runbook
+4. Product and platform teams ship mitigations
+5. Purple-team replay validates detection + containment effectiveness
+
+### Required Outputs
+- Detection rule specifications linked to finding IDs
+- Incident runbooks for top critical/high abuse paths
+- Post-exercise retro: what failed, what improved, what's next
+
+---
+
+## ⚠️ Common Implementation Pitfalls
+
+| Pitfall | Why It Fails | What Good Looks Like |
+|--------|---------------|----------------------|
+| Keyword-only blocking | Easy to bypass via encoding/obfuscation | Semantic + policy layered controls |
+| Over-trusting agent tools | Enables privilege escalation | Strong authz checks per tool action |
+| One-time red team exercise | Misses drift and regressions | Recurring automated + manual cadence |
+| Tracking only aggregate ASR | Hides high-risk hotspots | Risk-tiered metrics and trends |
+| No regression suite | Reintroduces old vulnerabilities | Versioned attack library in CI |
+
+---
+
+## 🧾 Case Study Quality Bar
+
+Use a normalized template for all future case studies:
+- System context and business criticality
+- Attack chain with reproducible steps
+- Root cause and control failure points
+- Severity and estimated remediation effort
+- Evidence quality tag (**Evidence-backed** or **Expert guidance**)
+- Confidence level (High/Medium/Low)
+- Lessons learned and prevention actions
+
+Template available: `templates/case-study-template.md`
+
+---
+
+## 🪪 Model & System Cards for Security Posture
+
+Document security posture using a structured card for every production AI system:
+- Intended use and prohibited use
+- Attack surface summary
+- Tested risk categories and latest validation date
+- Open risks and compensating controls
+- Incident escalation owners and contacts
+
+Template available: `templates/model-system-security-card.md`
+
+---
+
+## 🔄 Source Hygiene & Update Governance
+
+### Governance Practices
+- Maintain a versioned changelog for the guide (`CHANGELOG.md`)
+- Track external references with "last validated" timestamps
+- Mark major claims as **Evidence-backed** or **Expert guidance**
+- Run a quarterly review for stale links/tools/framework updates
+
+Reference index available: `resources-validation.md`
+
+---
+
+## 📎 Practitioner Appendices
+
+Starter artifacts in `templates/`:
+- `threat-modeling-workshop.md`
+- `ai-security-pr-checklist.md`
+- `rules-of-engagement-template.md`
+- `vulnerability-report-template.md`
+- `test-case-library-starter.md`
+- `stakeholder-readout-outline.md`
+- `model-system-security-card.md`
+- `case-study-template.md`
+
 
 ## 📋 Regulatory Compliance
 
