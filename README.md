@@ -1106,6 +1106,13 @@ bun start
 - Custom testing programs
 - **Website:** [neuraltrust.ai](https://neuraltrust.ai)
 
+#### 7. **Pallma AI**
+- Continuous automated AI red teaming
+- Real-time AI agent protection
+- AI purple teaming
+- Voice AI security protection
+- **Website:** [pallma.ai](https://pallma.ai)
+
 ---
 
 ### Comparison Matrix
@@ -1122,6 +1129,7 @@ bun start
 | **Lakera** | Commercial | $$$ | High | Low | Production protection |
 | **Pillar** | Service | $$$$ | Custom | N/A | Full-service testing |
 | **NeuralTrust** | Service | $$$ | Custom | N/A | Full-service testing |
+| **Pallma AI** | Service | $$$ | Very High | Low | Full-service testing |
 
 ---
 
