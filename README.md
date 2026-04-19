@@ -9,7 +9,7 @@
 
 **A comprehensive guide to adversarial testing and security evaluation of AI systems, helping organizations identify vulnerabilities before attackers exploit them.**
 
-[Overview](#overview) • [Frameworks](#frameworks) • [Methodologies](#methodologies) • [Tools](#tools) • [Case Studies](#case-studies) • [Resources](#resources)
+[Overview](#overview) • [Frameworks](#key-frameworks-and-standards) • [Methodologies](#ai-red-teaming-methodology) • [Tools](#red-teaming-tools) • [Case Studies](#real-world-case-studies) • [Resources](#resources-and-references)
 
 </div>
 
@@ -42,6 +42,8 @@
 
 ---
 
+<a id="overview"></a>
+
 ## 🎯 Overview
 
 As artificial intelligence systems become increasingly integrated into critical business operations, healthcare, finance, and decision-making processes, ensuring their security and reliability has never been more important. AI red teaming has emerged as a fundamental security practice that helps organizations identify vulnerabilities before they can be exploited in real-world scenarios.
@@ -64,6 +66,8 @@ This comprehensive guide is designed for:
 - ✅ **Comprehensive Coverage**: From basic concepts to advanced attack techniques
 
 ---
+
+<a id="what-is-ai-red-teaming"></a>
 
 ## 🤖 What is AI Red Teaming?
 
@@ -94,6 +98,8 @@ AI red teaming adapts military and cybersecurity red team concepts to the unique
 
 ---
 
+<a id="why-ai-red-teaming-matters"></a>
+
 ## 🚨 Why AI Red Teaming Matters
 
 ### The Urgency of AI Security
@@ -123,6 +129,8 @@ Article 15 of the European Union AI Act obliges operators of high-risk AI system
 - **Innovation Enablement**: Understanding risks allows safer experimentation
 
 ---
+
+<a id="key-frameworks-and-standards"></a>
 
 ## 📚 Key Frameworks and Standards
 
@@ -241,6 +249,8 @@ The Cloud Security Alliance's Agentic AI Red Teaming Guide explains how to test 
 - Attack blast radius assessment
 
 ---
+
+<a id="ai-red-teaming-methodology"></a>
 
 ## 🔬 AI Red Teaming Methodology
 
@@ -471,6 +481,8 @@ For each vulnerability:
 
 ---
 
+<a id="threat-landscape"></a>
+
 ## 🎯 Threat Landscape
 
 ### Adversary Types
@@ -524,6 +536,8 @@ For each vulnerability:
 ```
 
 ---
+
+<a id="attack-vectors-and-techniques"></a>
 
 ## ⚔️ Attack Vectors and Techniques
 
@@ -796,6 +810,8 @@ Example: Social engineering one agent to leak data to another
 ```
 
 ---
+
+<a id="red-teaming-tools"></a>
 
 ## 🛠️ Red Teaming Tools
 
@@ -1133,6 +1149,8 @@ bun start
 
 ---
 
+<a id="real-world-case-studies"></a>
+
 ## 📊 Real-World Case Studies
 
 ### Case Study 1: Microsoft's SSRF Vulnerability (2024)
@@ -1313,6 +1331,8 @@ Samsung employees accidentally leaked confidential company data by entering sens
 **Lesson:** Even without malicious intent, AI systems can facilitate data leakage. Organizations need clear policies for AI tool usage.
 
 ---
+
+<a id="building-your-red-team"></a>
 
 ## 👥 Building Your Red Team
 
@@ -1500,6 +1520,8 @@ Samsung employees accidentally leaked confidential company data by entering sens
 - Full automation where appropriate
 
 ---
+
+<a id="best-practices"></a>
 
 ## ✅ Best Practices
 
@@ -1752,6 +1774,8 @@ Red team members should feel comfortable:
 ---
 
 
+<a id="implementation-quickstart-306090"></a>
+
 ## 🚀 Implementation Quickstart (30/60/90)
 
 Use this phased plan to turn guidance into an operating program.
@@ -1778,6 +1802,8 @@ Use this phased plan to turn guidance into an operating program.
 - Publish quarterly security posture report with residual risk trends
 
 ---
+
+<a id="evaluation-harness-reference-implementation"></a>
 
 ## 🧪 Evaluation Harness (Reference Implementation)
 
@@ -1813,6 +1839,8 @@ security-evals/
   - Regression introduces > 20% ASR increase in any tracked class
 
 ---
+
+<a id="agentic-ai-attack-trees--controls-mapping"></a>
 
 ## 🕸️ Agentic AI Attack Trees + Controls Mapping
 
@@ -1853,6 +1881,8 @@ Use attack trees to connect offensive testing paths to defensive controls.
 
 ---
 
+<a id="ai-harm-severity-and-triage-model"></a>
+
 ## 📈 AI Harm Severity and Triage Model
 
 Use CVSS as a base, then add AI-specific modifiers:
@@ -1872,6 +1902,8 @@ Use CVSS as a base, then add AI-specific modifiers:
 - **Low**: backlog with risk acceptance + review date
 
 ---
+
+<a id="secure-sdlc-integration-artifacts"></a>
 
 ## 🧩 Secure SDLC Integration Artifacts
 
@@ -2071,6 +2103,8 @@ Starter artifacts in `templates/`:
 - `case-study-template.md`
 
 
+<a id="regulatory-compliance"></a>
+
 ## 📋 Regulatory Compliance
 
 ### United States
@@ -2143,6 +2177,8 @@ Emphasizes challenges in red teaming AI systems including:
 Recommends adversarial testing before deployment and continuous monitoring in production.
 
 ---
+
+<a id="resources-and-references"></a>
 
 ## 📚 Resources and References
 
